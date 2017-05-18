@@ -92,6 +92,16 @@ app.get('/bad',(req,res)=>
         errorMessage:'Error handling request.'
     });
 });
+
+app.get('/projects',(req,res)=>{
+    res.render('projects.hbs',{
+        pageTitle:'Portfolio Page',
+        //currentYear:new Date().getFullYear(), removing it because we used helper
+        message:'Portfolio page hhere .'
+    });
+   
+});
+
 //bind port and localmachine (changed from 300 to port )
 //secondd parameter server is up and running ack
 app.listen(port,()=>

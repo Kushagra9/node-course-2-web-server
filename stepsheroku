@@ -1,0 +1,19 @@
+commands heroku
+
+
+npm start   (modify package.js with start tag)
+
+ssh -v git@heroku.com
+
+git commit -m 'Setup stsrt script and heroku port'
+
+git push
+
+heroku create
+
+git push heroku
+
+heroku open  (for opening app)
+
+
+
