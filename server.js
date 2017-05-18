@@ -4,6 +4,7 @@ const express=require('express');
 var app=express();
 
 const fs=require('fs');
+const port=process.env.PORT || 3000;
 
 //module handlerbars its a templating language
 const hbs=require('hbs');
@@ -30,12 +31,13 @@ app.use((req,res,next)=>{
 
 // maintenece handler
 
-app.use((req,res,next)=>{
-    res.render('maintenence.hbs',{
-        pageTitle:'Maintenance Page',
-        message:'We will be right back'
-    });
-});
+//app.use((req,res,next)=>{
+//    res.render('maintenence.hbs',{
+//        pageTitle:'Maintenance Page',
+//        message:'We will be right back'
+//    });
+//   
+//});
 app.use(express.static(__dirname+'/public'));//middleware note if i keep this before maintenence.hbs handler all request to this page are still going to load solution: put it belowmaintenense.hbs
 
 
@@ -90,9 +92,9 @@ app.get('/bad',(req,res)=>
         errorMessage:'Error handling request.'
     });
 });
-//bind port and localmachine
+//bind port and localmachine (changed from 300 to port )
 //secondd parameter server is up and running ack
-app.listen(3000,()=>
+app.listen(port,()=>
           {
-    console.log('Server is up on port 3000');
+    console.log(`Server is up on port ${port}`);
 });
